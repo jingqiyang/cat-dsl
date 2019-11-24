@@ -1,0 +1,24 @@
+/Users/jingqi/Desktop/tufts/comp150pld/cat/app/Main.hs:(6,13)-(9,2): Splicing expression
+    Language.Haskell.TH.Quote.quoteExp
+      cat
+      " hello\n\
+      \\n\
+      \    this is my file\n"
+  ======>
+    do Cat.CodeGen.printContent " hello
+
+    this is my file
+"
+/Users/jingqi/Desktop/tufts/comp150pld/cat/app/Main.hs:(13,6)-(16,2): Splicing declarations
+    Language.Haskell.TH.Quote.quoteDec
+      cat
+      " hello\n\
+      \\n\
+      \    this is my file, version 2\n"
+  ======>
+    main_ad33
+      = do Cat.CodeGenDec.printContent
+             " hello
+
+    this is my file, version 2
+"
