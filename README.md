@@ -3,6 +3,7 @@
 DSL that prints out the contents of a file (like cat).
 Example programs located in `examples` directory.  
 The source code demonstrates how to convert from an embedded DSL to an external DSL.  
+Tutorial video: https://youtu.be/e04RWQT3XXY
 
 ### Modules
 #### Embedded DSL:
@@ -13,7 +14,7 @@ The source code demonstrates how to convert from an embedded DSL to an external 
 
 #### External DSL:
 * *QuoteExternal.hs* is the version of Quote.hs for the external DSL. It expects a `Q Exp` and generates a declaration
-* *QuoteExternalDec* is the version of QuoteDec.hs for the external DSL. It expects a `Q Dec` and generates a declaration
+* *QuoteExternalDec.hs* is the version of QuoteDec.hs for the external DSL. It expects a `Q Dec` and generates a declaration
 
 #### Main:
 * *Main.hs* contains 4 versions of the quasiquoted program, one for each of the quasiquoters. Uncomment a version to test that version
