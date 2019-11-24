@@ -16,7 +16,7 @@ The source code demonstrates how to convert from an embedded DSL to an external 
 * *QuoteExternalDec* is the version of QuoteDec.hs for the external DSL. It expects a `Q Dec` and generates a declaration
 
 #### Main:
-* Main.hs contains 4 versions of the quasiquoted program, one for each of the quasiquoters. Uncomment a version to test that version
+* *Main.hs* contains 4 versions of the quasiquoted program, one for each of the quasiquoters. Uncomment a version to test that version
 
 
 ### Instructions to run
