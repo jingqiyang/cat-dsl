@@ -17,9 +17,9 @@ module Main where
 
 
 --------------- external dsl ---------------
--- import Cat.QuoteExternal
--- [cat| |]
+import Cat.QuoteExternal
+[cat| |]
 
 --- external dsl with dec instead of exp ---
-import Cat.QuoteExternalDec
-[cat| |]
+-- import Cat.QuoteExternalDec
+-- [cat| |]

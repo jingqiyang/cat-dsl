@@ -14,7 +14,7 @@ import Cat.CodeGen (catCodeGen)
 import Control.Monad (when)
 
 cat :: QuasiQuoter
-cat = QuasiQuoter parseAndGenCode
+cat = QuasiQuoter (error "parse expression")
                   (error "parse pattern")
                   (error "parse type")
                   makeDec
@@ -34,8 +34,8 @@ makeDec :: String -> Q [Dec]
 makeDec _ = do
   maybeArgs <- TH.runIO $ lookupEnv "CAT_FILE"
   case maybeArgs of
+    Nothing -> fail "Wrong number of arguments"
     Just filename -> do
       when (filename == "") (fail "No file")
       program <- TH.runIO $ readFile filename
       [d| main = $(parseAndGenCode program) |]
-    Nothing -> fail "Wrong number of arguments"

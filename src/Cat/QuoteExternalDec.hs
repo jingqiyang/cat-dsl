@@ -17,7 +17,7 @@ cat :: QuasiQuoter
 cat = QuasiQuoter (error "parse expression")
                   (error "parse pattern")
                   (error "parse type")
-                  getFileAndCompile
+                  makeDec
 
 parseAndGenCode :: String -> Q [Dec]
 parseAndGenCode input = do
@@ -30,12 +30,12 @@ parseAndGenCode input = do
     Right x  -> catCodeGen x
 
 
-getFileAndCompile :: String -> Q [Dec]
-getFileAndCompile _ = do
+makeDec :: String -> Q [Dec]
+makeDec _ = do
   maybeArgs <- TH.runIO $ lookupEnv "CAT_FILE"
   case maybeArgs of
+    Nothing -> fail "Wrong number of arguments"
     Just filename -> do
       when (filename == "") (fail "No file")
       program <- TH.runIO $ readFile filename
       parseAndGenCode program
-    Nothing -> fail "Wrong number of arguments"
